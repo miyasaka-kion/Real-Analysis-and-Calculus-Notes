@@ -1,0 +1,344 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+\usepackage{amsfonts}
+\usepackage{tcolorbox}
+\def\it#1{\textit{#1}}
+\def\bm#1{\textbf{#1}}
+\newcommand\df{\mathrel{\overset{\makebox[0pt]{\mbox{\normalfont\tiny\sffamily def}}}{=}}}
+\newcommand*\diff{\mathop{}\!\mathrm{d}}
+\newcommand*\Diff[1]{\mathop{}\!\mathrm{d^#1}}
+\newcommand*\eps{\varepsilon}
+
+\geometry{a4paper,scale=0.75}
+\title{\huge \bfseries Real  Analysis and Calculus Pennote}
+\author{Kion \textsc{Miyasaka}}
+\begin{document}
+\maketitle
+
+\section{Sequence}
+
+\begin{tcolorbox}[colback=blue!5,colframe=black!5!red,title=\bm{Axiom of Completeness}]
+	A nonempty set of real numbers that is bounded above has a least upper bound, i.e. supremums of bounded sets are real numbers.
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=blue!5,colframe=black!75!green,title=\bm{Monotone Subsequence}]
+	Every sequence contains a monotonic subsequence.
+	\begin{tcolorbox}[colback=blue!5,colframe=black!75!black,title=\bm{Monotone Convergence Theorem}]
+	Suppose that $\left\{x_{n}\right\}$ is a monotonic sequence. Then, $\left\{x_{n}\right\}$ is convergent if and only if $\left\{x_{n}\right\}$ is bounded.
+\end{tcolorbox}
+
+\end{tcolorbox}
+
+
+\begin{tcolorbox}[colback=blue!5,colframe=black!75!black,title=\bm{Bolzano-Weierstrass}]
+Every bounded sequence contains a convergent subsequence.
+\end{tcolorbox}
+ 
+ \begin{tcolorbox}[colback=blue!5,colframe=black!75!black,title=\bm{Cauchy Convergence Criterion}]
+ A sequence $\left\{x_{n}\right\}$ is convergent iff for each $\varepsilon>0$ there exists an integer $N$ with the property that
+$$
+\left|x_{n}-x_{m}\right| \leq \varepsilon
+$$
+for all $n \geq N$ and $m \geq N$.	
+ \end{tcolorbox}
+ 
+ \qquad Completeness Axiom of reals
+ 
+$\Longrightarrow$ Monotonic Convergence Theorem
+
+$\Longrightarrow$ Bolzano-Weierstrass Theorem
+
+$\Longrightarrow$ Cauchy Convergence Criterion
+
+
+\newpage
+\section{Series}
+\subsection{Conditions of convergence}
+
+If $\sum_{k=1}^{\infty} a_{k}$ converges, then $a_{k} \rightarrow 0$ as $k \rightarrow \infty$.
+
+If the series $\sum_{k=1}^{\infty}\left|a_{k}\right|$ converges, then so does the series $\sum_{k=1}^{\infty}a_{k}$
+
+
+A series $\sum_{k=1}^{\infty} a_{k}$ is said to be absolutely convergent if $\sum_{k=1}^{\infty}\left|a_{k}\right|$ converges.
+
+
+In order to distinguish convergence from absolute convergence, we refer to the former as non-absolutely convergence, or conditional convergence.
+
+
+A series $\sum_{k=1}^{\infty} a_{k}$ is said to be non-absolutely (or conditional) convergent if it converges but the series $\sum_{k=1}^{\infty}\left|a_{k}\right|$ diverges.
+
+\subsection{Properties of Convergent Series}
+\subsubsection{Dirichlet's Theorem: rearrangements of series}
+
+Let $\sum_{n=1}^{\infty} a_{n}$ be an absolutely convergent series of real numbers. If $\left\{b_{n}\right\}$ is any rearrangement of $\left\{a_{n}\right\}$ then
+
+1. $\sum_{n=1}^{\infty} b_{n}$ is an absolutely convergent series.
+
+2. $\sum_{n=1}^{\infty} b_{n}=\sum_{n=1}^{\infty} a_{n}$
+
+\subsubsection{Conditional convergence}
+If the series $\sum_{n=1}^{\infty} a_{n}$ converges but does $n o t$ converge absolutely (i.e. $\sum_{n=1}^{\infty} a_{n}$ is conditionally convergent) and $\gamma \in \mathbb{R}$ is any real number, then there exists a rearrangement $\left\{b_{n}\right\}$ of the sequence $\left\{a_{n}\right\}$ so that
+$$
+\sum_{n=1}^{\infty} b_{n}=\gamma
+$$
+
+\subsection{Converge Tests}
+\subsubsection{Null test}
+If the terms of the series $\sum_{k=1}^{\infty} a_{k}$ do not converge to zero, then the series diverges.
+
+\subsubsection{Comparison test}
+Given two series $\sum_{k=1}^{\infty} a_{k}$ and $\sum_{k=1}^{\infty} b_{k}$ such that $0 \leq a_{k} \leq b_{k}$ for all $k$.
+
+1. If the larger series converges, then so does the smaller series.
+
+2. If the smaller series diverges, then so does the larger series.
+
+\subsubsection{Ratio test}
+If terms of the series $\sum_{k=1}^{\infty} a_{k}$ are all positive and the ratios
+$$
+\lim _{k \rightarrow \infty} \frac{a_{k+1}}{a_{k}}<1
+$$
+then the series is convergent.
+\subsubsection{Root test}
+If terms of the series $\sum_{k=1}^{\infty} a_{k}$ are all nonnegative and the roots
+$$
+\lim _{k \rightarrow \infty} \sqrt[k]{a_{k}}<1
+$$
+then the series is convergent.
+
+\subsubsection{Integral test}
+
+Let $f$ be a nonnegative decreasing function on $[1, \infty) .$ Then
+$$
+\lim _{X \rightarrow \infty} \int_{1}^{X} f(x) d x
+$$
+converges if and only if the series $\sum_{k=1}^{\infty} f(k)$ converges.
+
+\paragraph{Proof} since $f$ is decreasing we have
+$$
+\int_{k}^{k+1} f(x) d x \leq f(k) \leq \int_{k-1}^{k} f(x) d x
+$$
+Thus
+$$
+\int_{1}^{n+1} f(x) d x \leq \sum_{k=1}^{n} f(k) \leq f(1)+\int_{1}^{n} f(x) d x
+$$
+The series converges if and only if the partial sums are bounded.
+
+\subsubsection{Alternating Series test}
+The series
+$$
+\sum_{k=1}^{\infty}(-1)^{k-1} a_{k}
+$$
+where the terms alternate in sign, converges if the sequence $\left\{a_{k}\right\}$ decreases monotonically to zero.
+
+\newpage
+\section{Power Series}
+A power series 
+$$
+f(x) \df \sum _{n=0}^\infty a_n x^n, x\in S
+$$
+where $S$ will make sense.
+
+\subsection{Radius of Convergence}
+Given a power series $\sum_{n=0}^{\infty} a_{n} x^{n},$ either it converges absolutely for all $x \in \mathbb{R},$ or there exists $R \in[0, \infty)$ such that
+
+(1) it converges absolutely when $|x|<R$
+
+(2) it diverges when $|x|>R$.
+
+\paragraph{Remark}
+We can restate the theorem as
+$$
+(-R, R) \subseteq S \subseteq[-R, R]
+$$
+and the power series converges absolutely in $(-R, R) .$ In particular we see that $S$ is always an interval.
+
+\subsection{Convergence Test (of Power Series)}
+\subsubsection{Ratio test (of Power Series)}
+Consider the power series
+$$
+\sum_{n=0}^{\infty} a_{n} x^{n}
+$$
+Suppose that
+$$
+\frac{\left|a_{n+1}\right|}{\left|a_{n}\right|} \rightarrow \ell, \quad \text { as } \quad n \rightarrow \infty
+$$
+Then
+$$
+R=\left\{\begin{array}{ll}
+0 & \text { if } \quad \ell=\infty \\
+\frac{1}{\ell} & \text { if } \quad \ell \in \mathbb{R} \backslash\{0\} \\
+\infty & \text { if } \quad \ell=0
+\end{array}\right.
+$$
+\subsubsection{Root test (of Power Series)}
+
+Consider the power series
+$$
+\sum_{n=0}^{\infty} a_{n} x^{n}
+$$
+Suppose that
+$$
+\left|a_{n}\right|^{\frac{1}{n}} \rightarrow \ell, \quad \text { as } \quad n \rightarrow \infty
+$$
+Then
+$$
+R=\left\{\begin{array}{ll}
+0 & \text { if } \quad \ell=\infty \\
+\frac{1}{\ell} & \text { if } \quad \ell \in \mathbb{R} \backslash\{0\} \\
+\infty & \text { if } \quad \ell=0
+\end{array}\right.
+$$
+
+\newpage
+\section{Maclaurin and Taylor Series}
+\paragraph{Definition}
+If the function $f$ has a power series representation on the interval $(c-R, c+R),$ then the power series
+$$
+\begin{aligned}
+f(x) &=\sum_{n=0}^{\infty} \frac{f^{(n)}(c)}{n !}(x-c)^{n} \\
+&=\frac{f(c)}{0 !}+\frac{f^{\prime}(c)(x-c)}{1 !}+\frac{f^{\prime \prime}(c)(x-c)^{2}}{2 !}+\frac{f^{\prime \prime \prime}(c)(x-c)^{3}}{3 !}+\cdots
+\end{aligned}
+$$
+is called the \bm{Taylor Series of the function $f$ about $c$}. In the particular case that $c=0,$ then Taylor series of $f$ is usually called the Maclaurin series of $f:$
+$$
+\begin{aligned}
+f(x) &=\sum_{n=0}^{\infty} \frac{f^{(n)}(0)}{n !} x^{n} \\
+&=\frac{f(0)}{0 !}+\frac{f^{\prime}(0) x}{1 !}+\frac{f^{\prime \prime}(0) x^{2}}{2 !}+\frac{f^{\prime \prime \prime}(0) x^{3}}{3 !}+\cdots
+\end{aligned}
+$$
+\\
+
+\subsection{Things must be Memorized}
+1. For any $x \in \mathbb{R}$
+$$
+e^{x}=1+x+\frac{x^{2}}{2}+\cdots+\frac{x^{n}}{n !}+\cdots=\sum_{n=0}^{\infty} x^{n} / n !
+$$
+2. For any $x \in \mathbb{R}$
+$$
+\sin x=x-\frac{x^{3}}{3 !}+\frac{x^{5}}{5 !}+\cdots+(-1)^{n} \frac{x^{2 n+1}}{(2 n+1) !}+\cdots=\sum_{n=0}^{\infty}(-1)^{n} x^{2 n+1} /(2 n+1) !
+$$
+3. For any $x \in \mathbb{R}$
+$$
+\cos x=1-\frac{x^{2}}{2}+\frac{x^{4}}{4 !}+\cdots+(-1)^{n} \frac{x^{2 n}}{(2 n) !}+\cdots=\sum_{n=0}^{\infty}(-1)^{n} x^{2 n} /(2 n) !
+$$
+4. The Binomial Theorem: for any $\alpha \in \mathbb{R}$ and $x$ such that $|x|<1$
+$$
+\begin{aligned}
+(1+x)^{\alpha} &=1+\alpha x+\frac{\alpha(\alpha-1)}{2} x^{2}+\cdots+\frac{\alpha(\alpha-1) \ldots(\alpha-n+1)}{n !} x^{n}+\cdots \\
+&=\sum_{n \geq 0} \frac{\alpha(\alpha-1) \cdots(\alpha-n+1)}{n !} x^{n}
+\end{aligned}
+$$
+5. From $4 .$ we have, for any $x$ such that $|x|<1$,
+
+\begin{equation}
+\begin{aligned}
+\frac{1}{1-x}&=1+x+x^{2}+x^{3}+\cdots+x^{n}+\cdots=\sum_{n=0}^{\infty} x^{n} \\
+\frac{1}{1+x}&=1-x+x^{2}-x^{3}+\cdots+(-1)^{n} x^{n}+\cdots=\sum_{n=0}^{\infty}(-x)^{n}
+\end{aligned}
+\end{equation}
+
+6. For any $x$ such that $|x|<1$
+$$
+\log (1+x)=x-\frac{x^{2}}{2}+\frac{x^{3}}{3}-\frac{x^{4}}{4}+\cdots+(-1)^{n+1} \frac{x^{n}}{n}+\cdots=\sum_{n \geq 1}(-1)^{n+1} \frac{x^{n}}{n}
+$$
+
+\newpage
+\section{Things Must be Mentioned about Series}
+\subsection{$\sum a_n $ converges$ \iff \sum a_n^3$ converges}
+\subsubsection{$\not \Rightarrow$} 
+$\sum a_n$ converges \bm{does not} imply $\sum a_n^3$ converges in general for non positive $a_n$. For an $m$, write as $m=3n+k$ where $0\leq k<3$ and define $a_{3n+k}= \frac{b_k}{(n+1)^{1/3}}$ where $b_0=2$ and $b_1,b_2=-1$. Then $a^3_n$ in general looks like
+$$
+\frac{8}{1}, \frac{-1}{1}, \frac{-1}{1}, \frac{8}{2}, \frac{-1}{2}, \frac{-1}{2}, \frac{8}{3}, \frac{-1}{3}, \frac{-1}{3}, \ldots
+$$
+which has partial sums $S_{3n}=6\sum _{i=1}^{\infty} 1/i$ diverging.
+
+\subsubsection{$\not \Leftarrow$}
+$$
+\sum \frac{1}{k^3}\quad \textit{converges} \not \Rightarrow \sum \frac{1}{k}\quad \textit{converges} 
+$$
+
+%\subsubsection{Further More}
+%Let $C$ be an arbitrary subset of the positive integers ($C$ may be finite or infinite). Then there is a sequence $a_1,a_2,a_3,...$ of real numbers (of course, depending on $C$) such that for any positive integer $l$,
+%$$
+%\sum a_n^{2l-1}
+%$$
+%converges if and only if $l\in C$.
+
+\newpage
+\section{Basic Integration Methods}
+\subsection{Some Other Things}
+\subsubsection{Hyperbolic Function}
+\paragraph{Definition}
+\begin{equation}
+\sinh x \df \frac{e^x-e^{-x}}{2}\qquad
+\cosh x \df \frac{e^x+e^{-x}}{2}
+\end{equation}
+\subsubsection{Identities of Trigonometric Functions}
+\paragraph{Pythagorean Identities}
+\begin{equation}
+\begin{aligned}
+\sin^2 \theta + \cos^2 \theta=& 1\\
+\tan^2 + 1=&\sec^2 \theta \\
+1+ \cot ^2=& \csc^2 \theta 	
+\end{aligned}
+\end{equation}
+\subsubsection{Recite these Equations}
+For integrate is the inverse of the derivative, we just have to recite some basic rules about the derivative.
+Equation below request to be recited.
+\begin{equation}
+\begin{aligned}
+(\arcsin x)'&=\frac{1}{\sqrt{1-x^2}}\\
+(\arccos x)'&=-\frac{1}{\sqrt{1-x^2}}\\
+(\arctan x)'&=\frac{1}{1+x^2}\\
+(\tan x)'&=\sec^2 x\\
+(\cot x)'&=-\csc^2 x\\
+(\sinh x)'&= \cosh x\\ 
+(\cosh x)'&= \sinh x\\
+\end{aligned}
+\end{equation}
+
+\subsection{Some Classic Integrations}
+The following equation have some interesting conclusion.
+\begin{equation}
+\begin{aligned}
+\int \sec x\diff x &=\ln  \left|\frac{\cos \frac{x}{2} + \sin \frac{x}{2}}{\cos \frac{x}{2} -\sin \frac{x}{2}}\right|+C\\
+&= \ln \left| \frac{1+\sin x}{\cos x}\right|+C \\
+&= \ln \left| \sec x+ \tan x \right| + C
+\end{aligned}
+\end{equation}
+
+\section{Riemannn Integrable}
+Continuous\footnote{On closed set} $\Rightarrow$ Riemann Integrable $\Rightarrow$ Boundness
+
+\quad \quad \qquad \qquad \qquad \quad $\Uparrow$
+
+\quad \qquad \qquad \qquad Monotone 
+
+
+\section{Some Particular Functions}
+\subsection{Weierstrass function}
+the Weierstrass function is an example of a real-valued function that is continuous everywhere but differentiable nowhere.
+In Weierstrass's original paper, the function was defined as a Fourier series:
+$$
+f(x)=\sum_{n=0}^{\infty} a^{n} \cos \left(b^{n} \pi x\right)
+$$
+where $0<a<1, b$ is a positive odd integer, and
+$$
+a b>1+\frac{3}{2} \pi
+$$
+
+\subsection{Volterra's function}
+The function is defined by making use of the Smith Volterra Cantor set and "copies" of the function defined by $f(x)=x^{2}\sin(1/x)$ for $x\neq 0$ and $f(0)=0$.
+
+\begin{itemize}
+	\item $V$ is differentiable everywhere
+	\item The derivative $V'$ is bounded everywhere
+	\item The derivative is \bm{not Riemann-integrable}.
+\end{itemize}
+
+
+\end{document}
