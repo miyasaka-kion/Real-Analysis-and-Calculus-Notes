@@ -1,1 +1,1 @@
-This is a node made before final examination, refer to those in need.
+This is a note made before the final exam.
